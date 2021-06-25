@@ -44,16 +44,21 @@ app.post("/", function(req, res) {
   });
 
   const run = async () => {
-    const response = await client.lists.batchListMembers(listId, data).then(responses => {
-      console.log(responses);
-      if (responses.id !== "" && response.erroe_count === 0) {
+    try{
+      const response = await client.lists.batchListMembers(listId, data);
+      // console.log(response);
+      if(response.error_count===0){
         res.sendFile(__dirname + "/success.html");
       }
-
-    }).catch(err => {
+      else{
+        res.sendFile(__dirname + "/failure.html");
+      }
+      // console.log("success");
+    }
+    catch(err){
       res.sendFile(__dirname + "/failure.html");
-      console.log('Error');
-    });
+      // console.log("error");
+    }
 
   };
   run();
