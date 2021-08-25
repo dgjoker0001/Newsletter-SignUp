@@ -39,7 +39,7 @@ app.post("/", function(req, res) {
 
   // updated mailchimp site
   client.setConfig({
-    apiKey: "",
+    apiKey: "",   // removed API key for protection
     server: "us6"
   });
 
