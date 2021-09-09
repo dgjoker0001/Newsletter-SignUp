@@ -40,7 +40,7 @@ app.post("/", function(req, res) {
   // updated mailchimp site
   client.setConfig({
     apiKey: "",   // removed API key for protection
-    server: "us6"
+    server: ""    // removed so as to aviod misuse
   });
 
   const run = async () => {
@@ -64,9 +64,6 @@ app.post("/", function(req, res) {
   run();
 
 });
-
-// MailChimp API Key: ac4d98625a8e9ff2ea358066744f8767-us6
-// list id: 4ed65722c6
 
 // for failure try again button to go back to homepage
 app.post("/failure", function(req, res) {
